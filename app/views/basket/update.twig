@@ -1,0 +1,29 @@
+{% extends layout %}
+
+{% block head %}
+    <title> Editeur - Panier </title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+    <section class="main_section">
+        <form method="POST" class="col-md-8 py-4 mx-auto" action="{{routeOf('basketUpdate', {id : basket.id })}}">
+            <input type="hidden" name="date" value="{{"now" | date("Y-m-d H:i:s")}}"/>
+            <fieldset>
+                <div class="form-group">
+                    <label for="title">Nom du panier</label>
+                    <input
+                            id="title"
+                            name="title"
+                            maxlength="40"
+                            type="text"
+                            class="form-control"
+                            required
+                            value="{{basket.title}}">
+                </div>
+                <button type="submit" class="btn btn-primary" name="submit_type" value="save">Enregistrer</button>
+                <button type="submit" class="btn btnSaveClose" name="submit_type" value="saveandclose">Enregistrer et Fermer</button>
+                <button type="submit" class="btn btnClose" name="submit_type" value="close" >Fermer</button>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

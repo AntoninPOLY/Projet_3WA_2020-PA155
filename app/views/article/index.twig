@@ -1,0 +1,29 @@
+{% extends layout %}
+
+{% block head %}
+    <title> Natura - Nouveautés</title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<section class="main__section">
+    <h1 class="main__section__article-title">Nos nouveautées</h1>
+    <div class="main__section__grid">
+        {% for article in articles %}
+            <article class="main__section__article-wrapper">
+                <input data-article-id type="hidden" value="{{ article.id }}">
+                <h2 class="main__section__title">{{article.title}}</h2>
+                <p class="main__section__content" >{{article.content}}</p>
+                <button data-modal-target="#modal" class="main__section__button">En lire plus</button>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="main__section__modal" id="modal">
+        <div class="main__section__modal-header">
+            <h2 class="main__section__title" id="modal-title"></h2>
+            <button data-close-button class="main__section__close-button">&times;</button>
+        </div>
+        <p class="main__section__modal-content" id="modal-content"></p>
+    </div>
+    <div id="overlay" class="main__section__overlay"></div>
+</section>
+{% endblock %}

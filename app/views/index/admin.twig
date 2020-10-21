@@ -1,0 +1,123 @@
+{% extends layout %}
+
+{% block head %}
+    <title> Editeur - Accueil</title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<section class="main_section">
+        <section class="col-md-8 offset-md-1">
+            <div class="containt-header">
+                <h2>Gestion des articles</h2>
+                <hr class="my-4">
+            </div>
+
+            <table class="table table-striped mt-4 mb-4">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom de l'article</th>
+                    <th>Date de création</th>
+                    <th>Mis à jour le</th>
+                    <th>Status</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for article in articles %}
+                <tr>
+                    <td>{{article.id}}</td>
+                    <td>{{article.title}}</td>
+                    <td>{{article.created_at}}</td>
+                    <td>{{article.updated_at}}</td>
+                    <td> {%if article.online == 0%}
+                        <a href="{{routeOf('articleUpdate', { 'id' : article.id })}}" class="btn btn-sm btn-warning"><i class="fas fa-toggle-on"></i></a>
+                        {%else%}
+                        <a href="{{routeOf('articleUpdate', { 'id' : article.id })}}" class="btn btn-sm btn-warning"><i class="fas fa-toggle-off"></i></a>
+                        {%endif%}</td>
+                    <td><a href="{{routeOf('articleUpdate', { 'id' : article.id })}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{routeOf('articleDelete', { 'id' : article.id })}}" class="btn btn-sm btn-danger deletebutton"><i class="fas fa-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <nav class="containt-nav">
+                <a href="{{routeOf('articleInsert')}}" class="btn btn-sm btn-primary mt-4"><i class="fas fa-plus"></i> Ajouter un article</a>
+            </nav>
+        </section>
+
+
+        <!-- #################### Product ########################################## -->
+
+
+
+        <section class="col-md-8 offset-md-1">
+            <div class="containt-header">
+                <h2>Gestion des produits</h2>
+                <hr class="my-4">
+            </div>
+
+            <table class="table table-striped mt-4 mb-4">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom du produit</th>
+                    <th>Date de création</th>
+                    <th>Mis à jour le</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.title}}</td>
+                    <td>{{product.created_at}}</td>
+                    <td>{{product.updated_at}}</td>
+                    <td><a href="{{routeOf('productUpdate', { 'id' : product.id })}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{routeOf('productDelete', { 'id' : product.id })}}" class="btn btn-sm btn-danger deletebutton" ><i class="fas fa-trash"></i></a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <nav class="containt-nav">
+                <a href="{{routeOf('productInsert')}}" class="btn btn-sm btn-primary mt-4"><i class="fas fa-plus"></i> Ajouter un produit</a>
+            </nav>
+        </section>
+
+    <!-- #################### Baskets ########################################## -->
+
+    <section class="col-md-8 offset-md-1">
+        <div class="containt-header">
+            <h2>Gestion des paniers</h2>
+            <hr class="my-4">
+        </div>
+        <table class="table table-striped mt-4 mb-4">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom du panier</th>
+                <th>Date de création</th>
+                <th>Mis à jour le</th>
+                <th>Modifier</th>
+                <th>Ajouter un produit</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for basket in baskets %}
+                <tr>
+                    <td>{{basket.id}}</td>
+                    <td>{{basket.title}}</td>
+                    <td>{{ basket.created_at }}</td>
+                    <td>{{basket.updated_at}}</td>
+                    <td><a href="{{routeOf('basketUpdate', { 'id' : basket.id })}}" class="btn btn-sm btn-warning"><i class="far fa-edit"></i></a></td>
+                    <td><a href="{{routeOf('basketAdd', { 'id' : basket.id })}}" class="btn btn-sm btn-warning"><i class="fas fa-plus"></i></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</section>
+{% endblock %}

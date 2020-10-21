@@ -1,0 +1,23 @@
+{% extends layout %}
+
+
+{% block head %}
+    <title> Natura - Nos produits </title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<section class="main__section">
+        <article class="main__section__article">
+            <h1 class="main__section__title">Le Panier du jour </h1>
+            <p class="main__section__product-price"> {{ basket.price }} </p>
+            <ul class="main__section__product-content">
+                    {% for product in products %}
+                                <li class="main__section__product">
+                                    <p class="main__section__product-title">{{ product.title }}</p>
+                                    <p class="main__section__product-provenance"> Provenance : {{ product.provenance }}</p>
+                                </li>
+                    {% endfor %}
+            </ul>
+        </article>
+</section>
+    {% endblock %}
