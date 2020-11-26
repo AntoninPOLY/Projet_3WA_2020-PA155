@@ -12,7 +12,7 @@ class Config
             [
             'dbname'    =>  'portfolitlmyster',
             'user'      =>  'portfolitlmyster',
-            'password'  =>  'GC5CuF9sguLbepu',
+            'password'  =>  '',
             'host'      =>  'portfolitlmyster.mysql.db',
             ],
         ];
