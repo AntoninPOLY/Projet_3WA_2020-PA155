@@ -1,0 +1,46 @@
+{% extends layout %}
+
+{% block head %}
+    <title> - My Webpage</title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+    <section class="main_section">
+        <form method="post" class="col-md-10 mx-auto" action="{{routeOf('productUpdate', { 'id' : product.id })}}">
+            <fieldset>
+                <div class="form-group">
+                    <label for="title">Nom du produit</label>
+                    <input
+                            id="title"
+                            name="title"
+                            maxlength="40"
+                            type="text"
+                            class="form-control form-control-sm"
+                            value="{{ product.title }}"
+                            placeholder="Saisir le nom du produit">
+                </div>
+                <div class="form-group">
+                    <label for="provenance">Nom de la provenance</label>
+                    <input
+                            id="provenance"
+                            name="provenance"
+                            maxlength="40"
+                            type="text"
+                            class="form-control form-control-sm"
+                            value="{{ product.provenance }}"
+                            placeholder="Saisir le nom de la provenance">
+                </div>
+                <div class="form-group">
+                    {% for error in errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" name="submit_type" value="save">Enregistrer</button>
+                    <button type="submit" class="btn btnSaveClose" name="submit_type" value="saveandclose">Enregistrer et Fermer</button>
+                    <button type="submit" class="btn btnClose" name="submit_type" value="close" >Fermer</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends layout %}
+
+{% block head %}
+    <title> Editeur - Connexion </title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+    <section class="main__section">
+        <form class="main__section__form" action="{{routeOf('adminLogin')}}" method="POST">
+            <div class="main__section__div">
+                <a href="{{ routeOf('home') }}" class="header__title"><img src="/public/img/logo.svg" class="main__section__img" alt="Le logo de Natura"></a>
+            </div>
+            <input type="text" name="username" class="main__section__input" placeholder="Identifiant">
+            <input type="password" name="password" class="main__section__input" placeholder="Mot de Passe">
+            <button id="login" type="submit" name="login_btn" class="main__section__login-button">Se Connecter <i class="fas fa-sign-in-alt main__section__icon"></i></button>
+            <ul>
+                {% for error in errors %}
+                    <li class="main__section__error">{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </form>
+    </section>
+{% endblock %}

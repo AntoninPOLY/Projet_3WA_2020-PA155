@@ -1,0 +1,29 @@
+{% extends layout %}
+
+{% block head %}
+    <meta name="description" content="Page d'accueil du site web de Natura une épicerie à Maisons-Laffitte dans les Yvelines">
+    <meta name="keywords" content="Natura, Panier, Réservations, Fruits, Légumes, Maisons-Laffitte, Épicerie">
+    <title> Natura </title>
+{{ parent() }}
+{% endblock %}
+{% block content %}
+<section class="main__welcome">
+    <article class="main__welcome__article main__welcome__article--active">
+        <h2 class="main__welcome__title" >Réservez votre panier de fruits et légumes frais</h2>
+        <p class="main__welcome__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Dictum morbi proin nibh vitae amet quam est.
+                Sapien id scelerisque dignissim tellus tincidunt quis faucibus velit,
+                non. Leo, nisi dolor volutpat, sit morbi pellentesque.</p>
+            <a href="{{ routeOf('product') }}" class="main__welcome__button">Découvrez le panier du jour !</a>
+        </article>
+        <article class="main__welcome__article">
+            <h2 class="main__welcome__title-light">Venez découvrir notre boutique avenue de longueil</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d655.0887588918839!2d2.146091429259219!3d48.94672517949067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e6618234b72de7%3A0xeaa203041c409358!2s23bis%20All%C3%A9e%20Newmarket%2C%2078600%20Maisons-Laffitte!5e0!3m2!1sfr!2sfr!4v1599416880077!5m2!1sfr!2sfr"
+                    class="main__welcome__map"
+                    allowfullscreen=""
+                    aria-hidden="false"
+                    tabindex="0"></iframe>
+            <p class="main__welcome__title-light">Et récupérez-y votre panier de fruits et légumes frais</p>
+        </article>
+</section>
+{% endblock %}

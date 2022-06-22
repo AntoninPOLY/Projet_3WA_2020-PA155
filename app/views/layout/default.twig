@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Antonin POLY">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        {% block head %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+        <link rel="stylesheet" href='/public/css/styles.css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <header class="header">
+            <a href="{{ routeOf('home') }}" class="header__title"><img src="/public/img/logo.svg" alt="Le logo de Natura" class="header__title__img"/></a>
+            <input class="header__button" type="checkbox" id="menu-btn" />
+            <label class="header__icon" for="menu-btn"><span class="header__navicon"></span></label>
+            <nav class="header__nav">
+                <a href="{{ routeOf('product') }}" class="header__items">Nos produits</a>
+                <a href="{{ routeOf('article') }}" class="header__items">Nouveautées</a>
+
+            </nav>
+        </header>
+        <main class="main">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="footer">
+            <nav class="footer__nav">
+                <ul class="footer__list">
+                    <li class="footer__items"><a  href="{{ routeOf('product') }}" class="footer__links"><i class="fas fa-shopping-basket footer__icons"></i>Nos Produits</a></li>
+                    <li class="footer__items"><a href="#" title="Notre numéro de téléphone" class="footer__links"><i class="fas fa-phone footer__icons"></i> 0606050403</a></li>
+                    <li class="footer__items"><a href="#" title="Notre adresse" class="footer__links" ><i class="fas fa-map-marker-alt footer__icons"></i> 23bis Allée Newmarket Maisons-Laffitte</a></li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__items"><a href="#" title="Notre facebook" class="footer__links"><i class="fab fa-facebook footer__icons"></i>facebook</a></li>
+                    <li class="footer__items"><a href="#" title="Notre linkedin" class="footer__links"><i class="fab fa-linkedin footer__icons"></i>linkedin</a></li>
+                    <li class="footer__items"><a href="#" title="Notre instagram" class="footer__links"><i class="fab fa-instagram footer__icons"></i>instagram</a></li>
+                </ul>
+            </nav>
+        </footer>
+        <script type="text/javascript" src="/public/js/main.js"></script>
+    </body>
+</html>

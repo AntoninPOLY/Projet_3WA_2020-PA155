@@ -1,0 +1,21 @@
+{
+    "name": "antonin/projet",
+    "description": "projet MVC POO",
+    "require": {
+        "php": ">7.4",
+        "twig/twig": "^3.0",
+        "altorouter/altorouter": "^2.0",
+        "twbs/bootstrap": "4.5.2"
+    },
+    "autoload": {
+      "psr-4": {
+        "app\\": "src/"
+      }
+    },
+  "scripts": {
+    "post-install-cmd": [
+      "rm -rf public/bootstrap",
+      "cp -R vendor/twbs/bootstrap/dist public/bootstrap"
+    ]
+  }
+}

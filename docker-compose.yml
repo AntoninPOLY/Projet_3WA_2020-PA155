@@ -1,0 +1,30 @@
+version: '3'
+services:
+  webserver:
+    image: php:apache
+    container_name: php_dev
+    depends_on:
+      - db
+    ports:
+      - "8000:80"
+    environment:
+      - MYSQL_USER=devuser
+      - MYSQL_PASSWORD=devpass
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=projet_db
+    volumes:
+      - ./app:/var/www/html
+  db:
+    container_name: db_dev_mysql
+    image: mysql:8.0
+    restart: always
+    volumes:
+    - ./dump:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: projet_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    ports:
+      - 6033:3306

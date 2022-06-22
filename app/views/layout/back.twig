@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Antonin POLY">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0" />
+        {% block head %}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+            <link rel="stylesheet" href='/public/css/styles.css'>
+            <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <header class="header">
+            <a href="{{ routeOf('adminHome') }}" class="header__title"><img src="/public/img/logo.svg" alt="Le logo de Natura" class="header__title__img"></a>
+            <input class="header__button" type="checkbox" id="menu-btn" />
+            <label class="header__icon" for="menu-btn"><span class="header__navicon"></span></label>
+            <nav class="header__nav">
+                <a href="{{ routeOf('userLogOut') }}" class="header__items"> Se déconnecter <i class="fas fa-sign-out-alt footer__icons"></i></a>
+                <a href="{{ routeOf('home') }}" class="header__items"> Revenir au site <i class="fas fa-door-open footer__icons"></i></a>
+            </nav>
+        </header>
+        <main class="container-fluid main">
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="footer">
+            <nav class="footer__nav">
+                <a href="{{ routeOf('userLogOut') }}" class="footer__back-links"> Se déconnecter <i class="fas fa-sign-out-alt footer__icons"></i></a>
+                <a href="{{ routeOf('home') }}" class="footer__back-links"> Revenir au site <i class="fas fa-door-open footer__icons"></i></a>
+            </nav>
+        </footer>
+        <script type="text/javascript" src="/public/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/public/js/main.js"></script>
+    </body>
+</html>
